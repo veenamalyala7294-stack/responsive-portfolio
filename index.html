@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header with Navigation (Flexbox) -->
+  <header class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" class="btn-theme" aria-label="Toggle Theme">
+      <span class="theme-icon">🌙</span> Dark Mode
+    </button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Advanced CSS3 &amp; Responsive Architecture</h1>
+    <p>
+      Transforming semantic structures into visually stunning, fully responsive designs using modern layout architectures.
+    </p>
+  </section>
+
+  <!-- Main Container using CSS Grid for Overall Page Architecture -->
+  <main class="grid-layout">
+    
+    <!-- Sidebar / Profile Info -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="avatar">JS</div>
+        <h2>Jane Doe</h2>
+        <p class="role">Frontend Developer &amp; UI Specialist</p>
+        <p class="bio">Building pixel-perfect, accessible, and performant web applications across all screen sizes.</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <section class="content-area">
+      <h2>Featured Projects</h2>
+      
+      <!-- Grid Layout for Projects -->
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>E-Commerce Dashboard</h3>
+          <p>Complex grid layout with interactive data visualization widgets.</p>
+          <div class="tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS Grid</span>
+            <span class="tag">JS</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>SaaS Analytics Tool</h3>
+          <p>Responsive design featuring modern UI themes and micro-interactions.</p>
+          <div class="tags">
+            <span class="tag">Flexbox</span>
+            <span class="tag">CSS Variables</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>Design System System</h3>
+          <p>A unified library of dynamic responsive UI components.</p>
+          <div class="tags">
+            <span class="tag">Mobile-First</span>
+            <span class="tag">CSS3</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Jane Doe. Built with CSS Grid, Flexbox, &amp; Custom Variables.</p>
+  </footer>
+
+  <!-- Light/Dark Mode Theme Script -->
+  <script>
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeBtn.querySelector('.theme-icon');
+
+    // Check system or stored theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+      themeIcon.textContent = '☀️';
+      themeBtn.childNodes[1].nodeValue = ' Light Mode';
+    }
+
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      const isDark = document.body.classList.contains('dark-theme');
+
+      if (isDark) {
+        themeIcon.textContent = '☀️';
+        themeBtn.childNodes[1].nodeValue = ' Light Mode';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.textContent = '🌙';
+        themeBtn.childNodes[1].nodeValue = ' Dark Mode';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>
